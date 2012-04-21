@@ -2,7 +2,7 @@ gem 'cucumber-rails', :group => [:development, :test]
 gem 'capybara', :group => [:development, :test]
 
 after_bundler do
-  generate "cucumber:install --capybara#{' --rspec' if recipes.include?('rspec')}#{' -D' unless recipes.include?('activerecord')}"
+  generate "cucumber:install --capybara#{' --rspec' if recipes.include?('rspec')}#{' -D'}"
 end
 
 __END__
