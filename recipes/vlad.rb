@@ -1,18 +1,38 @@
 gem 'vlad', :require => false, :group => [:development]
 gem 'vlad-git', :require => false, :group => [:development]
 
-rakefile("vlad.rake") do
-  <<-TASK
-    begin
-      require 'vlad'
-      Vlad.load(:scm => :git)
-    rescue LoadError
-      puts "Error loading Vlad."
+after_bundler do
+  
+  rakefile("vlad.rake") do
+    <<-TASK
+      begin
+        require 'vlad'
+        Vlad.load(:scm => :git)
+      rescue LoadError
+        puts "Error loading Vlad."
+      end
+    TASK
+  end
+
+  create_file "config/deploy.rb", <<-RUBY
+    set :application, "APPLICATION_NAME"
+    set :user,        "SSH_USER_NAME"
+    set :domain,      "DOMAIN"
+    set :repository,  "GIT_REPOSITORY"
+    set :rails_env,   "production"
+
+    namespace :vlad do
+      task :deploy => [
+        :update,
+        :bundle,
+        :cleanup
+      ]  
     end
-  TASK
+  RUBY
+  
 end
 
-copy_file "vlad/vlad.rake", "config/deploy.rb"
+
 
 __END__
 
