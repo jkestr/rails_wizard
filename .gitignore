@@ -3,3 +3,5 @@
 Gemfile.lock
 ./test_run
 dist/*
+.rbenv-version
+.bash_profile
