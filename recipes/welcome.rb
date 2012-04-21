@@ -4,8 +4,8 @@ after_bundler do
   remove_file 'public/images/rails.png'
   
   create_file "app/views/application/index.html.haml", <<-RUBY
-    %section
-      %h1 Welcome!
+%section
+  %h1 Welcome!
   RUBY
 
   route("root :to => 'application#index'")
