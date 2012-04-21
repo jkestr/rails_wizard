@@ -16,20 +16,20 @@ namespace :vlad do
   ]  
   
   remote_task :bundle do
-    run(\"cd #{current_directory} && RAILS_ENV=#{rails_env} rake bundle install --deployment\")
+    run("cd #{current_directory} && RAILS_ENV=#{rails_env} rake bundle install --deployment")
   end
   
   remote_task :migrate do
-    run(\"cd #{current_directory} && RAILS_ENV=#{rails_env} rake db:autoupgrade\")
+    run("cd #{current_directory} && RAILS_ENV=#{rails_env} rake db:autoupgrade")
   end
   
   namespace :maintenance do
     remote_task :on, :roles => :web do
-      run(\"cp #{current_path}/public/503.html #{current_path}/public/system/maintenance.html\")
+      run("cp #{current_path}/public/503.html #{current_path}/public/system/maintenance.html")
     end
 
     remote_task :off, :roles => :web do
-      run(\"rm -f #{current_path}/public/system/maintenance.html\")
+      run("rm -f #{current_path}/public/system/maintenance.html")
     end                                                                                                                                                                                         
   end
   
