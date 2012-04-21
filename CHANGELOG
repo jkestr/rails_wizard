@@ -1,0 +1,11 @@
+= 2012-04-21
+
+-- Added Twitter Bootstrap
+-- Changed Devise to dm-devise
+-- Added Google Analytics
+-- Added Mondernizr
+-- Added SimpleForm
+-- Added Responders
+-- Added Bourbon
+-- Added vlad
+-- Removed ActiveRecord recipie
