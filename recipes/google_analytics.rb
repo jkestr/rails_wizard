@@ -6,8 +6,12 @@ after_bundler do
     # Replace UA- with clients property id from Google Analytics
     # config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-0000000-1")
   }
-  insert_into_file("config/environments/production", analytics, :after => /config.serve_static_assets = false/)
-  insert_into_file("config/environments/staging", analytics, :after => /config.serve_static_assets = false/)
+  insert_into_file("config/environments/production.rb", 
+                   analytics, 
+                   :after => /config.serve_static_assets = false/)
+  insert_into_file("config/environments/staging", 
+                  analytics, 
+                  :after => /config.serve_static_assets = false/)
 end
 
 __END__

@@ -1,4 +1,4 @@
-gem 'modernizr_rails', :required => 'modernizr-rails'
+gem 'modernizr_rails', :require => 'modernizr-rails'
 
 __END__
 
