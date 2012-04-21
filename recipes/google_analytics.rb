@@ -9,7 +9,7 @@ after_bundler do
   insert_into_file("config/environments/production.rb", 
                    analytics, 
                    :after => /config.serve_static_assets = false/)
-  insert_into_file("config/environments/staging", 
+  insert_into_file("config/environments/staging.rb", 
                   analytics, 
                   :after => /config.serve_static_assets = false/)
 end
