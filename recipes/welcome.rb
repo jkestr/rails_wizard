@@ -8,9 +8,7 @@ after_bundler do
       %h1 Welcome!
   RUBY
 
-  replace_in_file "config/routes.rb", 
-                  "# root :to => 'welcome#index'", 
-                  "root :to => 'application#index"
+  route("root :to => 'application#index'")
   
 end
 
