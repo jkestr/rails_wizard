@@ -29,7 +29,7 @@ Rails.application.config.generators do |g|
 end
 RUBY
 
-recipes = ["activerecord", "devise", "prototype"] 
+recipes = ["devise", "prototype"] 
 
 def say_custom(tag, text); say "\033[1m\033[36m" + tag.to_s.rjust(10) + "\033[0m" + "  #{text}" end
 def say_recipe(name); say "\033[1m\033[36m" + "recipe".rjust(10) + "\033[0m" + "  Running #{name} recipe..." end
