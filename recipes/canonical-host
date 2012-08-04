@@ -1,0 +1,21 @@
+gem 'rack-canonical-host'
+
+after_bundler do
+  analytics = %Q{
+  # https://github.com/tylerhunt/rack-canonical-host
+  # https://devcenter.heroku.com/articles/custom-domains
+  config.middleware.use("Rack::CanonicalHost", config.domain)
+  }
+
+  insert_into_file("config/environments/production.rb", 
+                   analytics, 
+                   :before => /# Code is not reloaded between requests/)
+end
+
+__END__
+
+name: Google Analytics
+description: Add Google analytics in the stack
+author: idk
+
+category: javascript
