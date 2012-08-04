@@ -5,13 +5,15 @@ after_bundler do
             'config.serve_static_assets = false',
             'config.serve_static_assets = true'
 
-  insert_into_file("config/environments/production.rb", 
-                   "config.static_cache_control = 'public, max-age=3600'",
-                   :after => /config.serve_static_assets = false/)
+  analytics = %Q{
+  config.static_cache_control = 'public, max-age=3600'
+  # Compress static assets with Gzip  
+  config.middleware.insert_before("ActionDispatch::Static", "Rack::Deflater")
+  }
 
   insert_into_file("config/environments/production.rb", 
-                   "TODO Add Gzip compression",
-                   :after => /config.serve_static_assets = false/)
+                   analytics,
+                   :after => /config.serve_static_assets = true/)
 end
 
 after_everything do
