@@ -1,4 +1,5 @@
 gem 'dm-devise'
+gem 'devise', '~> 2.1'
 
 after_bundler do
   generate 'devise:install'
