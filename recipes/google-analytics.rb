@@ -9,7 +9,7 @@ after_bundler do
 
   insert_into_file("config/environments/production.rb", 
                    analytics, 
-                   :after => /config.serve_static_assets = false/)
+                   :before => /# Code is not reloaded between requests/)
 end
 
 __END__
