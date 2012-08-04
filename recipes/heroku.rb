@@ -1,7 +1,7 @@
 heroku_name = app_name.gsub('_','')
 
 after_bundler do
-  gsub_file 'config/environments/production', 
+  gsub_file 'config/environments/production.rb', 
             'config.serve_static_assets = false',
             'config.serve_static_assets = true'
 
