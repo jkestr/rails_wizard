@@ -28,6 +28,11 @@ the recipe selection process and subsequently the Rails app generator
 will automatically run with the template and all appropriate command
 line options included.
 
+# Other things to add
+http://coderack.org/users/julioody/middlewares/20-racknoie
+http://coderack.org/users/webficient/middlewares/38-racktidy
+http://coderack.org/users/jtrupiano/middlewares/37-rackrewrite
+
 ### Specifying Recipes
 
 If you wish to skip the interactive recipe selector, you may provide
