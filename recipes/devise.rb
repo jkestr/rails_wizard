@@ -1,3 +1,4 @@
+gem 'devise', '~> 2.1'
 gem 'dm-devise'
 
 after_bundler do
