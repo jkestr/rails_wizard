@@ -1,6 +1,23 @@
 heroku_name = app_name.gsub('_','')
 
+after_bundler do
+  gsub_file 'config/environments/production.rb', 
+            'config.serve_static_assets = false',
+            'config.serve_static_assets = true'
+
+  analytics = %Q{
+  config.static_cache_control = 'public, max-age=3600'
+  # Compress static assets with Gzip  
+  config.middleware.insert_before("ActionDispatch::Static", "Rack::Deflater")
+  }
+
+  insert_into_file("config/environments/production.rb", 
+                   analytics,
+                   :after => /config.serve_static_assets = true/)
+end
+
 after_everything do
+
   if config['create']
     say_wizard "Creating Heroku app '#{heroku_name}.heroku.com'"  
     while !system("heroku create #{heroku_name}")

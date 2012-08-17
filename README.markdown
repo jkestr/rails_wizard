@@ -1,5 +1,7 @@
 # RailsWizard Gem 
 
+rails_wizard new ksc-app -r bootstrap bourbon devise google_analytics haml modernizr simple_form responders vlad welcome
+
 The RailsWizard gem is both the official repository of recipes for
 [RailsWizard][1] as well as a stand-alone tool to generate rails
 templates from the command line. The website and the gem are kept in
@@ -25,6 +27,11 @@ Where `APP_NAME` is the directory in which you wish to create the app
 the recipe selection process and subsequently the Rails app generator
 will automatically run with the template and all appropriate command
 line options included.
+
+# Other things to add
+http://coderack.org/users/julioody/middlewares/20-racknoie
+http://coderack.org/users/webficient/middlewares/38-racktidy
+http://coderack.org/users/jtrupiano/middlewares/37-rackrewrite
 
 ### Specifying Recipes
 
